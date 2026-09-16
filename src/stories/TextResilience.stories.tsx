@@ -65,16 +65,61 @@ const TextSpacingFixture = () => (
   </main>
 );
 
+const TextSpacingFailureFixture = () => (
+  <main className="text-resilience-fixture">
+    <header>
+      <h1>Text spacing failure examples</h1>
+      <p>These examples are intentionally constrained. Enable Text spacing to reveal clipping and overflow problems.</p>
+    </header>
+
+    <div className="text-resilience-failure-grid">
+      <section className="text-resilience-failure-card">
+        <h2>Fixed-height button</h2>
+        <p>The button does not provide enough room for increased text spacing.</p>
+
+        <button className="text-resilience-fixed-control" type="button">
+          Save preferences
+        </button>
+      </section>
+
+      <section className="text-resilience-failure-card">
+        <h2>Clipped text</h2>
+        <p>The message container has a fixed height and hides overflowing content.</p>
+
+        <div className="text-resilience-fixed-copy">Updates are sent to the project team by email.</div>
+      </section>
+
+      <section className="text-resilience-failure-card">
+        <h2>Clipped multiline input</h2>
+        <p>The field hides content when increased spacing creates additional lines.</p>
+
+        <label htmlFor="text-resilience-notes">Release notes</label>
+        <textarea
+          id="text-resilience-notes"
+          className="text-resilience-fixed-textarea"
+          defaultValue="Notify the project team when the updated component is ready for review."
+          readOnly
+        />
+      </section>
+    </div>
+  </main>
+);
+
 const meta = {
-  title: 'Text Resilience/Text Spacing',
-  component: TextSpacingFixture,
+  title: 'Text Resilience',
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof TextSpacingFixture>;
+} satisfies Meta;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Examples: Story = {};
+export const TextSpacing: Story = {
+  render: () => <TextSpacingFixture />,
+};
+
+export const KnownFailures: Story = {
+  render: () => <TextSpacingFailureFixture />,
+};
