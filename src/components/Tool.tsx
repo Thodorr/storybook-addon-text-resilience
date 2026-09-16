@@ -1,10 +1,10 @@
-import React, { memo, useCallback, useEffect } from 'react';
-import { useGlobals, type API } from 'storybook/manager-api';
+import React, { memo, useCallback } from 'react';
+import { useGlobals } from 'storybook/manager-api';
 import { IconButton } from 'storybook/internal/components';
-import { ADDON_ID, KEY, TOOL_ID } from '../constants';
-import { LightningIcon } from '@storybook/icons';
+import { KEY } from '../constants';
+import { AccessibilityIcon } from '@storybook/icons';
 
-export const Tool = memo(function MyAddonSelector({ api }: { api: API }) {
+export const Tool = memo(function TextSpacingTool() {
   const [globals, updateGlobals, storyGlobals] = useGlobals();
 
   const isLocked = KEY in storyGlobals;
@@ -14,21 +14,18 @@ export const Tool = memo(function MyAddonSelector({ api }: { api: API }) {
     updateGlobals({
       [KEY]: !isActive,
     });
-  }, [isActive]);
-
-  useEffect(() => {
-    api.setAddonShortcut(ADDON_ID, {
-      label: 'Toggle Measure [O]',
-      defaultShortcut: ['O'],
-      actionName: 'outline',
-      showInMenu: false,
-      action: toggle,
-    });
-  }, [toggle, api]);
+  }, [isActive, updateGlobals]);
 
   return (
-    <IconButton key={TOOL_ID} active={isActive} disabled={isLocked} title="Enable my addon" onClick={toggle}>
-      <LightningIcon />
+    <IconButton
+      active={isActive}
+      aria-label="Toggle text spacing"
+      aria-pressed={isActive}
+      disabled={isLocked}
+      title={isActive ? 'Disable text spacing' : 'Enable text spacing'}
+      onClick={toggle}
+    >
+      <AccessibilityIcon />
     </IconButton>
   );
 });

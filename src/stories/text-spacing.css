@@ -1,0 +1,104 @@
+.text-resilience-fixture {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 900px;
+  padding: 32px;
+  color: #222;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.text-resilience-fixture header {
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.text-resilience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.text-resilience-card {
+  padding: 20px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+}
+
+.text-resilience-card h2 {
+  margin-top: 0;
+}
+
+.text-resilience-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.text-resilience-controls h2 {
+  margin-bottom: 0;
+}
+
+.text-resilience-adaptive-control,
+.text-resilience-icon-control {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  max-width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+  white-space: normal;
+}
+
+.text-resilience-adaptive-control {
+  border: 1px solid transparent;
+  background-color: #1ea7fd;
+  color: white;
+  font-weight: 700;
+}
+
+.text-resilience-icon-control {
+  gap: 8px;
+  border: 1px solid #999;
+  background-color: white;
+  color: #222;
+}
+
+.text-resilience-form {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 8px;
+}
+
+.text-resilience-form input,
+.text-resilience-form textarea,
+.text-resilience-editor {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.text-resilience-editor {
+  min-height: 80px;
+}
+
+@media (max-width: 640px) {
+  .text-resilience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .text-resilience-form {
+    grid-column: auto;
+  }
+}
