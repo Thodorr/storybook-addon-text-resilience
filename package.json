@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-text-resilience",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A Storybook addon for checking how UI components handle increased text spacing.",
   "keywords": [
     "storybook-addon",
