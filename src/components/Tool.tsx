@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { useGlobals } from 'storybook/manager-api';
-import { IconButton } from 'storybook/internal/components';
+import { ToggleButton } from 'storybook/internal/components';
 import { KEY } from '../constants';
 import { AccessibilityIcon } from '@storybook/icons';
 
@@ -17,15 +17,14 @@ export const Tool = memo(function TextSpacingTool() {
   }, [isActive, updateGlobals]);
 
   return (
-    <IconButton
-      active={isActive}
-      aria-label="Toggle text spacing"
-      aria-pressed={isActive}
+    <ToggleButton
+      pressed={isActive}
+      ariaLabel="Text spacing"
       disabled={isLocked}
-      title={isActive ? 'Disable text spacing' : 'Enable text spacing'}
+      tooltip={isActive ? 'Disable text spacing' : 'Enable text spacing'}
       onClick={toggle}
     >
       <AccessibilityIcon />
-    </IconButton>
+    </ToggleButton>
   );
 });
