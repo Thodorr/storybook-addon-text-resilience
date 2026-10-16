@@ -1,5 +1,10 @@
 # Storybook Addon Text Resilience
 
+![Storybook](https://img.shields.io/badge/Storybook-Addon-FF4785?logo=storybook&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)
+![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%202.2-005A9C?logo=w3c&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 A Storybook addon for manually checking how UI components respond to increased text spacing.
 
 The addon adds a toolbar control that applies the text spacing values from
